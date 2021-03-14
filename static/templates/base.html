@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+	<meta name="google" content="notranslate">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="https://unpkg.com/vue@2.6.12/dist/vue.js"></script>
+	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+	<script src="https://unpkg.com/vuex"></script>
+
+	{% block head %}{% endblock %}
+
+	{% if title %}
+		<title>{{ title }}</title>
+	{% else %}
+		<title></title>
+	{% endif %}
+</head>
+<body>
+	<div id="app">
+		{% block content %}{% endblock %}
+	</div>
+
+	<!-- Vue templates, each one must have a unique id and be inside template tag -->
+	{% block template %}{% endblock %}
+
+	{% block script %}{% endblock %}
+</body>
+</html>
