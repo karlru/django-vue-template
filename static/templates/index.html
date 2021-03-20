@@ -1,53 +1,9 @@
 {% extends "base.html" %}
 
-{% block content %}
-	<router-view></router-view>
+{% block data %}
+	{{ data|safe }}
 {% endblock %}
 
-{% block template %}
-	<template id="numbers-list-template">
-		<div id="numbers-list">
-			<ul>
-				<li v-for="num in numbers">
-					[[ num ]]
-				</li>
-			</ul>
-		</div>
-	</template>
-{% endblock %}
-
-{% block script %}
-	<script>
-		Vue.use(Vuex)
-
-		const store = new Vuex.Store({
-			state: {
-				numbers: [
-				{% for num in numbers %}
-					'{{ num }}',
-				{% endfor %}
-				],
-			},
-		});
-
-		NumberList = Vue.component('number-list', {
-			delimiters: ['[[', ']]'],
-			data: function () { return { numbers: store.state.numbers } },
-			template: '#numbers-list-template',
-		});
-
-		const routes = [
-			{ component: NumberList, path: '/', },
-		];
-
-		const router = new VueRouter({
-			mode: 'history',
-			routes: routes,
-		});
-
-		const app = new Vue({
-			router,
-			store,
-		}).$mount('#app');
-	</script>
+{% block extrascript %}
+	<script type="text/javascript" src="static/js/app.js"></script>
 {% endblock %}

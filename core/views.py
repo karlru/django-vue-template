@@ -1,4 +1,7 @@
+# -*- coding: utf-8 -*-
+
 from random import randint
+import json
 from django.views.generic.base import TemplateView
 
 class IndexView(TemplateView):
@@ -10,5 +13,13 @@ class IndexView(TemplateView):
 		for n in range(0,20):
 			number = randint(0, 100)
 			numbers.append(number)
-		context['numbers'] = numbers
+		name = 'karl'
+
+		data = {
+			'numbers': numbers,
+			'name': name,
+		}
+
+		context['data'] = json.dumps(data)
+
 		return context

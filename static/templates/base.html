@@ -9,6 +9,8 @@
 	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 	<script src="https://unpkg.com/vuex"></script>
 
+	<script type="text/javascript" src="static/js/data.js"></script>
+
 	{% block head %}{% endblock %}
 
 	{% if title %}
@@ -22,9 +24,12 @@
 		{% block content %}{% endblock %}
 	</div>
 
-	<!-- Vue templates, each one must have a unique id and be inside template tag -->
-	{% block template %}{% endblock %}
+	<script type="text/javascript">
+		DATALIBRARY.init(
+			{{ data|safe }}
+		);
+	</script>
 
-	{% block script %}{% endblock %}
+	{% block extrascript %}{% endblock %}
 </body>
 </html>
