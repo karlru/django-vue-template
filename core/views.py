@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from random import randint
 import json
 from django.views.generic.base import TemplateView

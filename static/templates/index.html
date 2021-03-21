@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 
+{% block content %}
+	<router-view></router-view>
+{% endblock %}
+
 {% block data %}
 	{{ data|safe }}
 {% endblock %}
 
 {% block extrascript %}
-	<script type="text/javascript" src="static/js/app.js"></script>
+	<script type="module" src="static/js/app.js"></script>
 {% endblock %}
