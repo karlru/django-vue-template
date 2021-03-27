@@ -1,6 +1,6 @@
-var a = DATALIBRARY.getData();
-
-console.log(a);
+import { 
+	router 
+} from './router.js'
 
 const app = new Vue({
 	router,
