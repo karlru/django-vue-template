@@ -1,8 +1,7 @@
-var Home = Vue.component('home', {
-	delimiters: ['[[', ']]'],
-	data: function () { return { numbers: store.state.numbers } },
-	template: '<p>helo</p>',
-});
+import { 
+  Index,
+  Blog
+} from './components.js'
 
 const router = new VueRouter({
   mode: 'history',
@@ -10,8 +9,14 @@ const router = new VueRouter({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Index
     },
-    
+    {
+      path: '/blog',
+      name: 'blog',
+      component: Blog,
+    },
   ]
 })
+
+export { router }

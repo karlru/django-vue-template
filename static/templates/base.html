@@ -11,8 +11,6 @@
 
 	<script type="text/javascript" src="static/js/data.js"></script>
 
-	{% block head %}{% endblock %}
-
 	{% if title %}
 		<title>{{ title }}</title>
 	{% else %}
@@ -21,7 +19,7 @@
 </head>
 <body>
 	<div id="app">
-		{% block content %}{% endblock %}
+		<router-view></router-view>
 	</div>
 
 	<script type="text/javascript">
@@ -30,9 +28,9 @@
 		);
 	</script>
 
-	<script type="text/javascript" src="static/js/router.js"></script>
+	<script type="module" src="static/js/router.js"></script>
 	<script type="text/javascript" src="static/js/store.js"></script>
 
-	{% block extrascript %}{% endblock %}
+	<script type="module" src="static/js/app.js"></script>
 </body>
 </html>
