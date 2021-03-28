@@ -1,5 +1,10 @@
 const BlogTemplate = `
-	<p>Blog</p>
+	<div>
+		<p>Blog</p>
+		<router-link to="/">
+			Index
+		</router-link>
+	</div>
 `
 
 const Blog = {

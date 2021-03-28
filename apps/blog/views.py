@@ -3,9 +3,9 @@ from .models import Post
 
 class PostListView(ListView):
 	model = Post
-	context_object_name = 'posts'
-	template_name = 'blog/blog_home.html'
+	context_object_name = 'data'
+	template_name = 'base.html'
 
 class PostDetailView(DetailView):
 	model = Post
-	template_name = 'blog/blog_post.html'
+	template_name = 'base.html'
