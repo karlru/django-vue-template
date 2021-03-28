@@ -10,20 +10,15 @@
 	<script src="https://unpkg.com/vuex@3.6.2/dist/vuex.js"></script>
 	<script src="https://unpkg.com/axios@0.21.1/dist/axios.min.js"></script>
 
-	{% if title %}
-		<title>{{ title }}</title>
-	{% else %}
-		<title></title>
-	{% endif %}
+	<title>webpage</title>
 </head>
 <body>
+	<script type="module" src="{% static 'js/main.js' %}"></script>
+	
 	<div id="app">
 		<router-view></router-view>
 	</div>
 
-	<script type="module" src="{% static 'js/router.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/store.js' %}"></script>
-
-	<script type="module" src="{% static 'js/app.js' %}"></script>
+	
 </body>
 </html>

@@ -14,8 +14,15 @@ const IndexTemplate = `
 
 const Index = {
 	delimiters: ['[[', ']]'],
-	data: function () { return { numbers: store.state.numbers } },
+	computed: {
+		numbers: function() { 
+			return this.$store.state.index.numbers
+		}
+	},
     template: IndexTemplate,
+    created: function() {
+    	this.$store.dispatch('getAllNumbers')
+    }
 }
 
 export { Index }
