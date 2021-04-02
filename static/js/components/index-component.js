@@ -1,9 +1,15 @@
 const IndexTemplate = `
 	<div>
 		<p>Index</p>
+
 		<router-link to="/blog">
 			Blog
 		</router-link>
+		</br>
+		<router-link to="/auth">
+			Auth
+		</router-link>
+
 		<ul>
 			<li v-for="num in numbers">
 			[[ num ]]
