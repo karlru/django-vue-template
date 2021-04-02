@@ -2,8 +2,54 @@
 
 &nbsp;
 
-> Django Rest Framework+Vue CDN is just too boring <br/>
+> Django Rest Framework+Vue CLI is just too boring <br/>
 > -Shakespeare
 
-This is an experimental template project using vanilla Django together with VueJS CDN trying to mimic a SPA layout often used in DRF+Vue CLI combination. <br />
-This take will eliminate the need for two separate servers for front end and back end whilst keeping the nice, structured layout that Vue apps provide, together with easy setup process thanks to Docker Compose. It also comes with additional frameworks such as Vuex and Vue Router. In no shape or form is it meant to have the best performance or to be used in anything larger than personal "_just-for-fun_" projects. 
+&nbsp;
+
+This is a dockerized vanilla Django + Vue.js CDN SPA template. Meant to mimic DRF+Vue CLI as much as possible without needing separate hosting for the two. 
+
+Features include:
+	- Axios for handling requests
+	- Vuex for state management
+	- Vue router for managing SPA behaviour
+	- Postgresql as database
+	- User authentication
+	- Simple blog app
+
+## Running in developement
+
+Prerequisites:
+	- Docker
+
+```
+$ git clone https://github.com/karlru/django-vue-template
+$ cd django-vue-template
+```
+
+Environment variables must be declared by creating following folder/file structure:
+
+django-vue-template
+├── .envs
+│   ├── .local
+│   │   ├── .django
+│   │   └── .postgres
+│   └── .production
+│       ├── .django
+│       └── .postgres
+
+A .django file must specify a SECRET_KEY variable, .postgres file POSTGRES_DB, POSTGRES_USER and POSTGRES_PASSWORD variables.
+
+Alternatively you could specify those in core/settings.py and local.yml files.
+
+```
+$ docker-compose -f local.yml up
+```
+
+
+## Vue setup
+
+Vue, Vuex, Vue router and Axios are all included in the base.html template via CDN so that there is no need to import them anywhere else. 
+
+Vue side of app consists of mainly two parts: components and store modules, which work hand in hand. A new set of these files with predefined templates can be created using `$ python utils/create_component.py *NAME_OF_COMPONENT*`.
+Necessary changes in Vuex store and router must be done by hand.
