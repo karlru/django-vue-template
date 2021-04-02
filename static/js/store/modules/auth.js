@@ -9,7 +9,6 @@ const getters = {
 
 const actions = {
 	getUserStatus(context) {
-		console.log('hereeee')
 		axios.get('users/')
 			.then(function (response) {
 				context.commit('setAuthenticated', response.data.auth)
@@ -33,14 +32,38 @@ const actions = {
 			}
 		)
 			.then(function (response) {
+				if(response.data.err) {
+					alert(response.data.err)
+				}
 				dispatch('getUserStatus')
 			})
 			.catch(function (error) {
 				console.log(error);
 			})
 	},
-	submitLogoutForm({context, dispatch}, data) {
-
+	submitRegisterForm({context, dispatch}, data) {
+		axios.post(
+			'users/register/', 
+			{
+				'username': data.username,
+				'password1': data.password1,
+				'password2': data.password2,
+			},
+			{
+				headers: {
+					'X-CSRFTOKEN': state.csrfToken,
+				}
+			}
+		)
+			.then(function (response) {
+				if(response.data.err) {
+					alert(response.data.err)
+				}
+				dispatch('getUserStatus')
+			})
+			.catch(function (error) {
+				console.log(error);
+			})
 	},
 	logout({context, dispatch}) {
 		axios.get('users/logout/')

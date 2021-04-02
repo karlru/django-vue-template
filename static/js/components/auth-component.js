@@ -6,15 +6,15 @@ const AuthTemplate = `
 			<p>register: </p>
 			<form id="register-form">
 				<label for="username">username</label>
-				<input type="text" name="username">
+				<input type="text" v-model="register.username" name="username">
 
 				<label for="password1">password</label>
-				<input type="password" name="password1">
+				<input type="password" v-model="register.password1" name="password1">
 
 				<label for="password2">repeat password</label>
-				<input type="password" name="password2">
+				<input type="password" v-model="register.password2" name="password2">
 
-				<input type="submit" value="submit">
+				<input v-on:click.prevent="submitRegisterForm" type="submit" value="submit">
 			</form>
 
 			<p>login: </p>
@@ -50,8 +50,12 @@ const Auth = {
 		login: {
 			username: '',
 			password: '',
-		}
-		
+		},
+		register: {
+			username: '',
+			password1: '',
+			password2: '',
+		},
 	}),
 	template: AuthTemplate,
 	created: function() {
@@ -67,9 +71,19 @@ const Auth = {
 				}
 			)
 		},
+		submitRegisterForm(e) {
+			this.$store.dispatch(
+				'submitRegisterForm', 
+				{
+					'username': this.register.username, 
+					'password1': this.register.password1,
+					'password2': this.register.password2,
+				}
+			)
+		},
 		logout(e) {
 			this.$store.dispatch('logout')
-		}
+		},
 	}
 }
 
