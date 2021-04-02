@@ -9,5 +9,5 @@ urlpatterns = [
     path('numbers/', views.IndexView.as_view()),
     path('blog/', include('apps.blog.urls'), name='blog'),
     path('users/', include('apps.users.urls'), name='users'),
-    url(r'^.*$', TemplateView.as_view(template_name='base.html')),
+    url(r'^(?!admin|static).*$', TemplateView.as_view(template_name='base.html')),
 ]
