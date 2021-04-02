@@ -10,17 +10,17 @@
 This is a dockerized vanilla Django + Vue.js CDN SPA template. Meant to mimic DRF+Vue CLI as much as possible without needing separate hosting for the two. 
 
 Features include:
-	- Axios for handling requests
-	- Vuex for state management
-	- Vue router for managing SPA behaviour
-	- Postgresql as database
-	- User authentication
-	- Simple blog app
+- Axios for handling requests
+- Vuex for state management
+- Vue router for managing SPA behaviour
+- Postgresql as database
+- User authentication
+- Simple blog app
 
 ## Running in developement
 
 Prerequisites:
-	- Docker
+- Docker
 
 ```
 $ git clone https://github.com/karlru/django-vue-template
