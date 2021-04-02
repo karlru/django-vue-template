@@ -29,6 +29,7 @@ $ cd django-vue-template
 
 Environment variables must be declared by creating following folder/file structure:
 
+<pre>
 django-vue-template
 ├── .envs
 │   ├── .local
@@ -37,6 +38,7 @@ django-vue-template
 │   └── .production
 │       ├── .django
 │       └── .postgres
+</pre>
 
 A .django file must specify a SECRET_KEY variable, .postgres file POSTGRES_DB, POSTGRES_USER and POSTGRES_PASSWORD variables.
 
