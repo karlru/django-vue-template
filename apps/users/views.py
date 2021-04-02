@@ -18,6 +18,7 @@ class UserView(TemplateView):
 class LoginView(TemplateView):
 	def post(self, request):
 		data = json.loads(request.body)
+		err = ''
 
 		username = data['username']
 		password = data['password']
@@ -47,6 +48,7 @@ class LogoutView(TemplateView):
 class RegisterView(TemplateView):
 	def post(self, request):
 		data = json.loads(request.body)
+		err = ''
 
 		form = UserRegisterForm(data)
 
