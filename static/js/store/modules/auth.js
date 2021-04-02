@@ -39,6 +39,9 @@ const actions = {
 				console.log(error);
 			})
 	},
+	submitLogoutForm({context, dispatch}, data) {
+
+	},
 	logout({context, dispatch}) {
 		axios.get('users/logout/')
 			.then(function (response) {

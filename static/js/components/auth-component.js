@@ -20,10 +20,10 @@ const AuthTemplate = `
 			<p>login: </p>
 			<form id="login-form">
 				<label for="username">username</label>
-				<input type="text" v-model="username" name="username">
+				<input type="text" v-model="login.username" name="username">
 
 				<label for="password1">password</label>
-				<input type="password" v-model="password" name="password">
+				<input type="password" v-model="login.password" name="password">
 
 				<input v-on:click.prevent="submitLoginForm" type="submit" value="submit">
 			</form>
@@ -47,8 +47,11 @@ const Auth = {
 		}
 	},
 	data: () => ({
-		username: '',
-		password: '',
+		login: {
+			username: '',
+			password: '',
+		}
+		
 	}),
 	template: AuthTemplate,
 	created: function() {
@@ -59,8 +62,8 @@ const Auth = {
 			this.$store.dispatch(
 				'submitLoginForm', 
 				{
-					'username': this.username, 
-					'password': this.password
+					'username': this.login.username, 
+					'password': this.login.password,
 				}
 			)
 		},
