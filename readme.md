@@ -27,6 +27,8 @@ $ git clone https://github.com/karlru/django-vue-template
 $ cd django-vue-template
 ```
 
+A new Postgresql database must be created.
+
 Environment variables must be declared by creating following folder/file structure:
 
 <pre>
@@ -46,8 +48,10 @@ Alternatively you could specify those in core/settings.py and local.yml files.
 
 ```
 $ docker-compose -f local.yml up
+$ python manage.py migrate
 ```
 
+If migrating fails due to *django.db.utils.ProgrammingError: relation "blog_post" does not exist* or similar error, comment out said model references in urls.py and try migrating again.
 
 ## Vue setup
 
